@@ -20,7 +20,7 @@ app.get("/login", (req, res) => {
         response_type: "code",
         client_id: process.env.CLIENT_ID,
         scope: scope,
-        redirect_uri: process.env.REDIRECT_URI,
+        redirect_uri: process.env.REDIRECT_URL,
       })
   );
 });
@@ -34,7 +34,7 @@ app.get("/callback", async (req, res) => {
       new URLSearchParams({
         grant_type: "authorization_code",
         code: code,
-        redirect_uri: process.env.REDIRECT_URI,
+        redirect_uri: process.env.REDIRECT_URL,
       }),
       {
         headers: {
